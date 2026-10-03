@@ -1,0 +1,198 @@
+/* iOS Safari does not zoom focused form controls whose computed font size is 16px or larger. */
+input,
+select,
+textarea { font-size: 16px; }
+
+/* The quick amount field should not show the browser's up/down spinner controls. */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Keep the close control easy to tap while preserving the light, minimal look. */
+.close-page {
+  width: 44px;
+  min-width: 44px;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 300;
+  color: var(--muted-ink);
+}
+
+.amount-caption {
+  margin: -24px 0 22px;
+  color: var(--muted-ink);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Keep the app content and fixed navigation inside the iPhone safe areas. */
+.app-shell {
+  min-height: 100dvh;
+  padding-top: calc(22px + env(safe-area-inset-top));
+  padding-bottom: calc(100px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav {
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.modal {
+  padding-bottom: calc(29px + env(safe-area-inset-bottom));
+}
+
+.section-link,
+.back-button {
+  min-height: 44px;
+}
+
+.section-link {
+  padding: 0 2px;
+  color: #777;
+  font-size: 11px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #777;
+  font-size: 12px;
+}
+
+.all-count { color: #aaa; font-size: 11px; }
+.all-bills-heading { margin: 4px 0 21px; }
+.all-bills-heading h2 { margin: 0; font-size: 28px; letter-spacing: -.06em; }
+
+@media (min-width: 700px) {
+  .app-shell { padding-top: 30px; padding-bottom: 100px; }
+  .bottom-nav { bottom: 24px; }
+}
+
+/* Warm paper / terracotta / olive palette inspired by the supplied reference. */
+:root {
+  --paper: #f5f6f4;
+  --paper-card: #ffffff;
+  --terracotta: #718078;
+  --terracotta-dark: #56635d;
+  --olive: #303934;
+  --olive-dark: #1f2622;
+  --ink: #252b28;
+  --muted-ink: #78817c;
+  --line: #e1e6e3;
+}
+
+html, body, #root,
+body { background: var(--paper); color: var(--ink); }
+
+.app-shell { background: var(--paper); }
+.app-icon { background: var(--olive-dark); }
+.header-add,
+.primary,
+.stats-total,
+.balance-card { background: var(--olive); }
+.balance-card { box-shadow: 0 11px 28px rgba(92, 97, 77, .18); }
+.balance-foot button { color: var(--olive-dark); }
+.quick-stats > div,
+.chart-card,
+.setting-group,
+.form-label input,
+.goal-preview,
+.modal,
+.month-switch,
+.bill-actions { background: var(--paper-card); border-color: var(--line); }
+.quick-stats > div,
+.chart-card,
+.setting-group,
+.goal-preview { border-color: var(--line); }
+.bill-list { border-color: var(--line); }
+.bill { border-color: var(--line); }
+.bill-icon,
+.category-pills button.selected,
+.modal-cats button.selected { background: rgba(168, 112, 63, .14); }
+.category-pills button.selected,
+.modal-cats button.selected { border-color: var(--terracotta); color: var(--terracotta-dark); }
+.category-pills button,
+.modal-cats button { border-color: var(--line); background: var(--paper-card); }
+.progress i { background: var(--terracotta); }
+.bottom-nav { background: var(--olive-dark); }
+.bottom-nav button:nth-child(2) { background: var(--terracotta); }
+.bottom-nav button.active,
+.bottom-nav button.active:nth-child(2) { background: var(--paper-card); color: var(--olive-dark); }
+.bottom-nav { grid-template-columns: repeat(4, 1fr); }
+
+.available-strip,
+.income-card,
+.form-card { background: var(--paper-card); border: 1px solid var(--line); border-radius: 15px; }
+.available-strip { display: flex; align-items: center; justify-content: space-between; padding: 15px 17px; margin: -22px 0 30px; }
+.available-strip span, .income-card span, .income-card small { color: var(--muted-ink); font-size: 11px; }
+.available-strip strong { color: var(--olive-dark); font-size: 18px; }
+.income-card { background: var(--olive); color: #fff; padding: 22px; margin-bottom: 14px; }
+.income-card span, .income-card small { display: block; color: rgba(255,255,255,.68); }
+.income-card strong { display: block; font-size: 38px; letter-spacing: -.06em; margin: 5px 0 18px; }
+.form-card { padding: 19px; }
+.form-card h3 { margin: 0 0 7px; font-size: 14px; }
+.form-hint { color: var(--muted-ink); font-size: 11px; line-height: 1.6; margin: 0 0 18px; }
+.data-group { padding: 0 17px; }
+.settings-disclosure { width: 100%; min-height: 56px; display: flex; align-items: center; justify-content: flex-start; font-size: 13px; }
+.settings-disclosure span { margin-left: 0 !important; }
+.settings-disclosure svg { margin-left: auto; }
+.settings-disclosure svg { color: var(--muted-ink); transition: transform .2s ease; }
+.settings-disclosure svg.is-open { transform: rotate(180deg); }
+.setting-actions { border-top: 1px solid var(--line); padding: 4px 0 3px; }
+.setting-actions button { width: 100%; min-height: 50px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); font-size: 12px; text-align: left; }
+.setting-actions button:last-of-type { border-bottom: 0; }
+.setting-actions button span { margin-left: auto; color: var(--muted-ink); font-size: 10px; }
+
+.goals-heading,
+.goal-card-top,
+.goal-card-amount,
+.goal-form-actions { display: flex; align-items: center; justify-content: space-between; }
+.goals-heading { margin-bottom: 16px; }
+.goals-heading h3 { margin: 0; }
+.goals-heading p { margin: 5px 0 0; color: var(--muted-ink); font-size: 10px; }
+.goals-heading > span { color: var(--muted-ink); font-size: 11px; }
+.goal-list { display: grid; gap: 10px; margin-bottom: 18px; }
+.goal-card { padding: 14px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); }
+.goal-card-top > div:first-child { min-width: 0; }
+.goal-card-top strong,
+.goal-card-top span { display: block; }
+.goal-card-top strong { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.goal-card-top span { margin-top: 4px; color: var(--muted-ink); font-size: 10px; }
+.goal-card-actions { display: flex; gap: 2px; }
+.goal-card-actions button { width: 40px; height: 40px; display: grid; place-items: center; color: var(--muted-ink); }
+.goal-card-amount { margin: 14px 0 7px; justify-content: flex-start; gap: 5px; }
+.goal-card-amount b { font-size: 15px; }
+.goal-card-amount span { color: var(--muted-ink); font-size: 11px; }
+.goal-card-amount strong { margin-left: auto; color: var(--terracotta-dark); font-size: 12px; }
+.goal-card .progress { height: 7px; }
+.goal-done { display: block; margin-top: 7px; color: var(--terracotta-dark); font-size: 10px; }
+.goal-form { padding-top: 16px; border-top: 1px solid var(--line); }
+.goal-form h3 { margin: 0 0 13px; font-size: 13px; }
+.goal-form-actions { gap: 9px; }
+.goal-form-actions .setting-save { flex: 1; }
+.cancel-button { min-height: 48px; padding: 0 15px; border: 1px solid var(--line); border-radius: 11px; color: var(--muted-ink); font-size: 12px; }
+.goal-previews { display: grid; gap: 10px; margin-top: 30px; }
+.goal-previews .goal-preview { margin-top: 0; }
+.bottom-nav button:nth-child(2),
+.bottom-nav button.active:nth-child(2) { color: inherit; background: transparent; }
+.bottom-nav button.active { background: var(--paper-card); color: var(--olive-dark); }
+.bottom-nav button.active:nth-child(2) { background: var(--paper-card); color: var(--olive-dark); }
+.primary:hover { background: var(--terracotta-dark); }
+.section-link,
+.back-button,
+.muted,
+.section-title span,
+.all-count { color: var(--muted-ink); }
+.form-label input:focus,
+.amount-input input:focus { border-color: var(--terracotta); }
+.chart-grid i { border-color: #e2d5c4; }
+.donut > div { background: var(--paper-card); }
